@@ -77,7 +77,7 @@ void RV8523::stop(void)
 }
 
 
-void RV8523::set12HourMode() //set 12 hour mode
+void RV8523::set12HourMode(void) //set 12 hour mode
 {
   uint8_t val;
 
@@ -99,7 +99,7 @@ void RV8523::set12HourMode() //set 12 hour mode
 }
 
 
-void RV8523::set24HourMode() //set 24 hour mode
+void RV8523::set24HourMode(void) //set 24 hour mode
 {
   uint8_t val;
 
