@@ -900,13 +900,13 @@ void GraphicsLib::touchCal(void)
     {
       case   0:
       case 180:
-             if(x >= (lcd_width*2)) { x = 0; }
-        else if(x >= (lcd_width*1)) { x = lcd_width-1; }
+             if(x >= (uint16_t)(lcd_width*2)) { x = 0; }
+        else if(x >= (uint16_t)(lcd_width*1)) { x = lcd_width-1; }
         break;
       case  90:
       case 270:
-             if(x >= (lcd_height*2)) { x = 0; }
-        else if(x >= (lcd_height*1)) { x = lcd_height-1; }
+             if(x >= (uint16_t)(lcd_height*2)) { x = 0; }
+        else if(x >= (uint16_t)(lcd_height*1)) { x = lcd_height-1; }
         break;
     }
 
@@ -925,13 +925,13 @@ void GraphicsLib::touchCal(void)
     {
       case   0:
       case 180:
-             if(y >= (lcd_height*2)) { y = 0; }
-        else if(y >= (lcd_height*1)) { y = lcd_height-1; }
+             if(y >= (uint16_t)(lcd_height*2)) { y = 0; }
+        else if(y >= (uint16_t)(lcd_height*1)) { y = lcd_height-1; }
         break;
       case  90:
       case 270:
-             if(y >= (lcd_width*2)) { y = 0; }
-        else if(y >= (lcd_width*1)) { y = lcd_width-1; }
+             if(y >= (uint16_t)(lcd_width*2)) { y = 0; }
+        else if(y >= (uint16_t)(lcd_width*1)) { y = lcd_width-1; }
         break;
     }
 
