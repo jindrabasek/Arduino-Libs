@@ -276,14 +276,14 @@ const uint8_t initdataL2F50[] PROGMEM =
   0x80| 1, LCD_WIDTH-1,       //end page
   //display on
   0x40| 1, 0xAF,
-  0xC0| 10, //10ms
+  0xC0|10, //10ms
   0xFF   , 0xFF
 };
 
 
 void S65L2F50::reset(void)
 {
-  uint_least8_t c, d, i;
+  uint_least8_t c, i;
   const PROGMEM uint8_t *ptr;
 
   //reset

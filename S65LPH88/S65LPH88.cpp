@@ -253,8 +253,8 @@ const uint8_t initdataLPH88[] PROGMEM =
   0xC0|50, //50ms
   //display options
   0x40| 3, 0x05, 0x00, 0x38, //entry mode ++
-  0x40| 3, 0x16, (LCD_HEIGHT-1)<<8, 0, //set y
-  0x40| 3, 0x17, (LCD_WIDTH-1)<<8, 0, //set x
+  0x40| 3, 0x16, LCD_HEIGHT-1, 0, //set y
+  0x40| 3, 0x17, LCD_WIDTH-1, 0, //set x
   0x40| 3, 0x21, 0<<8, 0, //set cursor pos
   //display on sequence (bit2 = reversed colors)
   0x40| 3, 0x07, 0x00, 0x05, //display control: D0
