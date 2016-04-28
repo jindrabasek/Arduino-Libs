@@ -234,12 +234,12 @@ void S65LS020::setArea(int_least16_t x0, int_least16_t y0, int_least16_t x1, int
       wr_cmd(0x07, x0);                //set x cursor pos
       break;
     case 270:
-      wr_cmd(0x08, (LCD_WIDTH-1)-x0);  //set x0
-      wr_cmd(0x09, (LCD_WIDTH-1)-x1);  //set x1
-      wr_cmd(0x0A, (LCD_HEIGHT-1)-y0); //set y0
-      wr_cmd(0x0B, (LCD_HEIGHT-1)-y1); //set y1
-      wr_cmd(0x06, (LCD_WIDTH-1)-x0);  //set x cursor pos
-      wr_cmd(0x07, (LCD_HEIGHT-1)-y0); //set y cursor pos
+      wr_cmd(0x08, (LCD_HEIGHT-1)-x0);  //set x0
+      wr_cmd(0x09, (LCD_HEIGHT-1)-x1);  //set x1
+      wr_cmd(0x0A, (LCD_WIDTH-1)-y0); //set y0
+      wr_cmd(0x0B, (LCD_WIDTH-1)-y1); //set y1
+      wr_cmd(0x06, (LCD_HEIGHT-1)-x0);  //set x cursor pos
+      wr_cmd(0x07, (LCD_WIDTH-1)-y0); //set y cursor pos
       break;
   }
 
