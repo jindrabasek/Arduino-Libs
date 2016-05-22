@@ -7,6 +7,22 @@
 #ifndef __digitalWriteFast_h_
 #define __digitalWriteFast_h_ 1
 
+#include <Arduino.h>
+
+void digitalWriteSemiFast(uint8_t pin, uint8_t val)
+{
+    if (val == LOW) {
+        *portOutputRegister(digitalPinToPort(pin)) &= ~digitalPinToBitMask(pin);
+    } else {
+        *portOutputRegister(digitalPinToPort(pin)) |= digitalPinToBitMask(pin);
+    }
+}
+
+int digitalReadSemiFast(uint8_t pin)
+{
+    return (*portInputRegister(digitalPinToPort(pin)) & digitalPinToBitMask(pin)) ? HIGH : LOW;
+}
+
 // general macros/defines
 #ifndef BIT_READ
 # define BIT_READ(value, bit)            ((value) &   (1UL << (bit)))
@@ -318,10 +334,10 @@
 if (__builtin_constant_p(P) && __builtin_constant_p(V)) { \
   BIT_WRITE(*__digitalPinToPortReg(P), __digitalPinToBit(P), (V)); \
 } else { \
-  digitalWrite((P), (V)); \
+  digitalWriteSemiFast((P), (V)); \
 }
 #else
-#define digitalWriteFast digitalWrite
+#define digitalWriteFast digitalWriteSemiFast
 #endif
 #endif
 
@@ -346,9 +362,9 @@ if (__builtin_constant_p(P) && __builtin_constant_p(V)) { \
 #define __digitalReadFast(P ) \
   (__builtin_constant_p(P) ) ? ( \
   ( BIT_READ(*__digitalPinToPINReg(P), __digitalPinToBit(P))) ) : \
-  digitalRead((P))
+  digitalReadSemiFast((P))
 #else
-#define digitalReadFast digitalRead
+#define digitalReadFast digitalReadSemiFast
 #endif
 #endif
 
