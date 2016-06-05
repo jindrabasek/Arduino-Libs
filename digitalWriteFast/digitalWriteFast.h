@@ -7,21 +7,10 @@
 #ifndef __digitalWriteFast_h_
 #define __digitalWriteFast_h_ 1
 
-#include <Arduino.h>
+#include <stdint.h>
 
-void digitalWriteSemiFast(uint8_t pin, uint8_t val)
-{
-    if (val == LOW) {
-        *portOutputRegister(digitalPinToPort(pin)) &= ~digitalPinToBitMask(pin);
-    } else {
-        *portOutputRegister(digitalPinToPort(pin)) |= digitalPinToBitMask(pin);
-    }
-}
-
-int digitalReadSemiFast(uint8_t pin)
-{
-    return (*portInputRegister(digitalPinToPort(pin)) & digitalPinToBitMask(pin)) ? HIGH : LOW;
-}
+void digitalWriteSemiFast(uint8_t pin, uint8_t val);
+int digitalReadSemiFast(uint8_t pin);
 
 // general macros/defines
 #ifndef BIT_READ
